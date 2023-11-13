@@ -36,14 +36,20 @@ public class PlayingCard {
             valueStr = "A";
         } else {
             valueStr = String.valueOf(value);
-        };
+        }
 
-        String suitSymbol = switch (suit) {
-            case DIAMONDS -> "\u2666";
-            case HEARTS -> "\u2665";
-            case CLUBS -> "\u2663";
-            case SPADES -> "\u2660";
-        };
+        String suitSymbol;
+        if (suit == PlayingCard.Suit.DIAMONDS) {
+            suitSymbol = "\u2666";
+        } else if (suit == PlayingCard.Suit.HEARTS) {
+            suitSymbol = "\u2665";
+        } else if (suit == PlayingCard.Suit.CLUBS) {
+            suitSymbol = "\u2663";
+        } else if (suit == PlayingCard.Suit.SPADES) {
+            suitSymbol = "\u2660";
+        } else {
+            throw new IllegalArgumentException("Invalid suit value");
+        }
 
         return valueStr + " " + suitSymbol;
     }
@@ -55,9 +61,25 @@ public class PlayingCard {
             case CLUBS -> "\u2663";
             case SPADES -> "\u2660";
         };
+        int intCardValue = playingCard.getValue();
+        String strCardValue;
+        if (intCardValue == 11) {
+            strCardValue = "J";
+        } else if (intCardValue == 12) {
+            strCardValue = "Q";
+        } else if (intCardValue == 13) {
+            strCardValue = "K";
+        } else if (intCardValue == 14) {
+            strCardValue = "A";
+        } else {
+            strCardValue = String.valueOf(intCardValue);
+        }
 
-        printStream.println(playingCard.getSuit());
-
+         printStream.println(" _______");
+         printStream.printf("|%s      |\n", strCardValue);
+         printStream.printf("|   %s   |\n", suitSymbol);
+         printStream.printf("|      %s|\n", strCardValue);
+         printStream.println(" -------");
     }
 
     public enum Suit {DIAMONDS, HEARTS, CLUBS, SPADES}
