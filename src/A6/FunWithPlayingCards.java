@@ -39,7 +39,7 @@ public class FunWithPlayingCards {
                     CardDeck.drawCard(cardDeck);
                 }
             } else if (selection.equals("2")) {
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 7; i++) {
                     CardDeck.drawCard(cardDeck);
                 }
             } else if (selection.equals("3")) {
@@ -58,10 +58,7 @@ public class FunWithPlayingCards {
                 }
             }
 
-
         }
-
-
 
     }
 
