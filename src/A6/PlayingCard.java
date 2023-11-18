@@ -1,12 +1,22 @@
 package A6;
 
 import java.io.PrintStream;
+
+/**
+ * The PlayingCard class represents a playing card with a value and a suit.
+ */
 public class PlayingCard {
     public static final int ACE = 14;
-
     private int value;
     private Suit suit;
 
+    /**
+     * Constructs a PlayingCard with the specified value and suit.
+     *
+     * @param value The numerical value of the card.
+     * @param suit  The suit of the card.
+     * @throws IllegalArgumentException if the value is invalid.
+     */
     public PlayingCard(int value, Suit suit) {
         if (value < 2 || value > ACE) {
             throw new IllegalArgumentException("Invalid card value");
@@ -15,14 +25,30 @@ public class PlayingCard {
         this.suit = suit;
     }
 
+    /**
+     * Retrieves the numerical value of the card.
+     *
+     * @return The numerical value of the card.
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * Retrieves the suit of the card.
+     *
+     * @return The suit of the card.
+     */
     public Suit getSuit() {
         return suit;
     }
 
+    /**
+     * Overrides the toString method to represent the card as a String.
+     *
+     * @return The String representation of the card.
+     * @throws IllegalArgumentException if the suit value is invalid.
+     */
     @Override
     public String toString() {
         String valueStr;
@@ -54,6 +80,12 @@ public class PlayingCard {
         return valueStr + " " + suitSymbol;
     }
 
+    /**
+     * Prints an ASCII representation of the playing card.
+     *
+     * @param playingCard The playing card to print.
+     * @param printStream The PrintStream to print the card representation.
+     */
     public static void printAsciiCard(PlayingCard playingCard, PrintStream printStream) {
         String suitSymbol = switch (playingCard.getSuit()) {
             case DIAMONDS -> "\u2666";
@@ -82,6 +114,9 @@ public class PlayingCard {
          printStream.println(" -------");
     }
 
+    /**
+     * Enum representing the four suits of a playing card.
+     */
     public enum Suit {DIAMONDS, HEARTS, CLUBS, SPADES}
 }
 

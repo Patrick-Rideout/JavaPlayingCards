@@ -3,7 +3,9 @@ package A6;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-
+/**
+ * The FunWithPlayingCards class demonstrates various operations with a deck of playing cards.
+ */
 public class FunWithPlayingCards {
 
     public static void main(String[] args) {
